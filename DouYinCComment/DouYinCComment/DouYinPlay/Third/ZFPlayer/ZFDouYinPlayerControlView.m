@@ -11,7 +11,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIView+CustomControlView.h"
 #import "MMMaterialDesignSpinner.h"
-
+#import "TTCCom.h"
+#import "UIImageView+WebCache.h"
 static const CGFloat ZFPlayerAnimationTimeInterval             = 7.0f;
 static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 
@@ -472,9 +473,11 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 
 /** 正在播放（隐藏placeholderImageView） */
 - (void)zf_playerItemPlaying {
-    [UIView animateWithDuration:1.0 animations:^{
-        self.placeholderImageView.alpha = 0;
-    }];
+    if(self.placeholderImageView.alpha != 0) {
+//        [UIView animateWithDuration:1.0 animations:^{
+            self.placeholderImageView.alpha = 0;
+//        }];
+    }
 }
 
 - (void)zf_playerShowOrHideControlView {

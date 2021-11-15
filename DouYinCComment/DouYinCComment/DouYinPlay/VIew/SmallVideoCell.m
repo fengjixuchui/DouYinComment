@@ -8,7 +8,8 @@
 
 #import "SmallVideoCell.h"
 #import "Masonry.h"
-
+#import "TTCCom.h"
+#import "UIImageView+WebCache.h"
 @interface SmallVideoCell ()
 
 @property (nonatomic, strong) UIImageView *videoImageView;
@@ -132,7 +133,7 @@
     self.messageLabel.text = @"";
     [self.videoImageView addSubview:self.messageLabel];
     self.messageLabel.font = [UIFont systemFontOfSize:11 ];
-    self.messageLabel.textColor = [UIColor whiteColor];
+    self.messageLabel.textColor = [UIColor redColor];
     [self.messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.iconImageView.mas_right).with.offset(5 );
         make.right.with.offset(-5 );

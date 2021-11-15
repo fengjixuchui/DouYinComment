@@ -12,6 +12,7 @@
 #import "DDVideoPlayerManager.h"
 #import "SDImageCache.h"
 #import "CommentsPopView.h"
+#import "TTCCom.h"
 
 static NSString * const SmallVideoCellIdentifier = @"SmallVideoCellIdentifier";
 
@@ -42,16 +43,18 @@ static NSString * const SmallVideoCellIdentifier = @"SmallVideoCellIdentifier";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.videoPlayerManager autoPlay];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.hidden = NO;
+
 }
 
 - (void)createUI {
