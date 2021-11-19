@@ -77,8 +77,8 @@
     //3.创建TCNestScrollPageView处理嵌套滚动
     TCNestScrollParam *nestScrollParam = [[TCNestScrollParam alloc] init];
     nestScrollParam.pageType = NestScrollPageViewHeadViewNoSuckTopType;
-    nestScrollParam.yOffset = nestScrollPageYOffset;
     nestScrollParam.scrolContinue = YES;//支持header滚动延续
+    nestScrollParam.yOffset = nestScrollPageYOffset;
     TCNestScrollPageView *scrollPageView = [[TCNestScrollPageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) headView:self.nestPageScrollHeaderView viewPageView:viewPager nestScrollParam:nestScrollParam];
     self.scrollPageView = scrollPageView;
     [self.view addSubview:scrollPageView];
@@ -102,7 +102,7 @@
         } else if([currVC isKindOfClass:BaseWebViewController.class]) {
             scrolContineView = ((BaseWebViewController *)currVC).baseWebView.webView.scrollView;
         } else {
-            scrolContineView = nil;//如果对应的控制器没有需要滚动延续的scrollView,那么要赋值为nil
+            scrolContineView = nil;//如果对应的控制器没有需要滚动延续的scrollView,那么也一定要赋值为nil(一定要哈)
         }
         [weakSelf.scrollPageView setObserveScrollView:scrolContineView];
     }];
